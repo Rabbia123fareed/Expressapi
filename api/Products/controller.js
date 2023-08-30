@@ -68,6 +68,16 @@ const productbycategory = async (req, res) => {
 
 const productbybrand = async (req, res) => {
 
+    // const { Brandname } = req.params
+    // if (!Brandname) {
+    //     res.status(403).json({ message: "Please Give Product id" })
+    // }
+    // else {
+    //     await connect(process.env.MONGO_URI)
+    //     const product = await Product.findOne({ Brandname })
+    //     res.json({ product })
+    // }
+
    
     const { brand } = req.query
     try {
@@ -155,7 +165,7 @@ const getAllproducts = async (req, res) => {
 
 
     catch (error) {
-        res.status(417).json({
+        res.status(404).json({
             message: error
         })
     }
@@ -164,21 +174,14 @@ const getAllproducts = async (req, res) => {
 
 const getProductByID = async (req, res) => {
 
-    const { _id } = req.query
-
-
-    try {
-        await connect(process.env.MONGO_URI)
-        console.log("DB Connected")
-        const product = await Product.findOne({ _id })
-        res.json({ product })
+    const { _id } = req.params
+    if (!_id) {
+        res.status(403).json({ message: "Please Give Product id" })
     }
-
-
-    catch (error) {
-        res.status(400).json({
-            message: error.message
-        })
+    else {
+        await connect(process.env.MONGO_URI)
+        const products = await Product.findOne({ _id })
+        res.json({ products })
     }
 }
 module.exports = { createProducts,productbycategory,productbybrand,updateproduct,deleteproduct,getAllproducts,getProductByID } 

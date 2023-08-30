@@ -8,7 +8,7 @@ const cors = require('cors')
 const port = process.env.SERVER_PORT 
 
 
-const clientPath = path.join(__dirname, './Frontend/dist')
+const clientPath = path.join(__dirname, './client/dist')
 // const port = 3000
 app.use('/', express.static(clientPath))
 
@@ -22,7 +22,7 @@ app.use('/api', require('./api/brands/router'))
 app.use('/api', require('./api/Category/router'))
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './Frontend/dist/index.html'))
+  res.sendFile(path.join(__dirname, './client/dist/index.html'))
 
 })
 

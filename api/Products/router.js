@@ -9,5 +9,5 @@ router.get('/product/brand',productbybrand )
 router.put('/updateproduct', updateproduct)
 router.delete('/deleteproduct', deleteproduct)
 router.get('/getallproduct', getAllproducts)
-router.get('/getproductid',  getProductByID)
+router.get('/getproductid/:_id',  getProductByID)
 module.exports = router
