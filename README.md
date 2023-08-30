@@ -5,7 +5,7 @@ Brands Routes:
 Addbrand ; http://localhost:3000/api/addbrand,
 
 
-brandByID ; http://localhost:3000/api/getbrandbyid,
+brandByID ; http://localhost:3000/api/getbrandbyid?_id=64c9bbd22e80079903268dca,
 
 
 getallbrands ; http://localhost:3000/api/getallbrands,
